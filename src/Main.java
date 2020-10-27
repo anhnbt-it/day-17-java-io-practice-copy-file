@@ -21,8 +21,12 @@ public class Main {
         File destFile = new File(destPath);
 
         try {
-            copyFileUsingJava7Files(sourceFile, destFile);
-            System.out.println("Copy completed.");
+            if (sourceFile.exists()) {
+                copyFileUsingJava7Files(sourceFile, destFile);
+                System.out.println("Copy completed.");
+            } else {
+                System.out.println("File not exists!");
+            }
         } catch (IOException e) {
             System.err.println("Can't copy that file");
             e.printStackTrace();
